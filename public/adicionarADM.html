@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="styleAdicionarADM.css">
+    <title>Cadastro</title>
+</head>
+<body>
+    <a href="lobby.html"><button>Voltar</button></a>
+   
+    <!-- Não atualizar a pagina devido enviar para o servidor e solicitar uma requisição, usar o event.preventDefault -->
+
+
+
+    <div class="card">
+        <div class="card-header">
+          <div class="text-header">Cadastro deAdministrador</div>
+        </div>
+        <div class="card-body">
+          <form action="#">
+            <div class="form-group">
+              <label for="username">Nome do Administrador:</label>
+              <input required="" class="form-control" name="nome" id="nome" type="text">
+            </div>
+            <div class="form-group">
+              <label for="username">CPF:</label>
+              <input required="" class="form-control" name="cpf" id="cpf" type="text">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Senha de Acesso:</label>
+              <input required="" class="form-control"  id="senha" type="number">
+            </div>
+
+    
+
+           <input type="button" class="btn" onclick="enviarDados()"  value="Enviar">    </form>
+        </div>
+      </div>
+
+
+
+
+
+
+    <script >
+        //Função que envia dados para o servidor
+function enviarDados(){
+    //Obter o valores do input
+    const nome= document.getElementById("nome").value;
+    const cpf= document.getElementById("cpf").value;
+    const senha= document.getElementById("senha").value;
+ 
+
+
+    //Envia os dados para o servidor
+    fetch(`login`,{
+        method:'POST', //Metodo HTTP utilizando (POST)
+        //Headers é um objeto de requisição HTTP que insere no JSON as informações
+        headers:{
+            'Content-Type':
+            'application/json'//tipo de conteudo enviado(JSON)
+        },
+        //Body é um objeto JS que foi convertido para JSON.USando o metodo JSON.stringify.Enviando no formato JSON
+        body: JSON.stringify({nome: nome,cpf:cpf,senha:senha})
+
+    })
+    .then(response => response.json())
+    //Converte a resposta para JSON
+}
+
+    </script>
+</body>
+</html>

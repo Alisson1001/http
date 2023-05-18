@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleDeletarADM.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="lobby.html"><button>Voltar</button></a>
+
+
+    <div class="card">
+        <div class="card-header">
+          <div class="text-header">Administrador</div>
+        </div>
+        <div class="card-body">
+            <h3>Insira o CPF do Administrador para deletar</h3>
+            <div class="input-group" >
+                <input type="email" class="input" id="cpf"  placeholder="CPF do ADM" autocomplete="off">
+                <input class="button" value="Buscar" type="submit" onclick="buscarDados()" >
+                
+            </div>
+          <form action="#">
+            
+            <div class="form-group">
+              <label for="username">ID:</label>
+              <input required="" class="form-control" name="username" id="id" type="text" disabled>
+            </div>
+            <div class="form-group">
+                <label for="username">Nome do Administrador:</label>
+                <input required="" class="form-control" name="username" id="nome" type="text">
+
+           
+
+            
+
+           <input type="button" class="btn" onclick="deletarDados()" value="Deletar">    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+function buscarDados(){
+        const cpf=document.getElementById('cpf').value;
+        fetch(`login`,{
+            method:'GET'
+        })
+        .then(response => response.json())
+        .then(data=>{
+            const buscarADM = data.find(login => login.cpf ===cpf)
+            if(buscarADM){
+                document.getElementById('nome').value = buscarADM.nome;
+                document.getElementById('id').value = buscarADM.id;
+              
+             
+            } else{
+                alert('ADM não Encontrado')
+            }
+        })
+    }
+
+
+
+
+        function deletarDados(){
+        const cpf= document.getElementById("cpf").value;
+
+        fetch(`login`)
+        .then(response=>response.json())
+        .then(data => {
+            data.forEach(objeto => {
+                if(objeto.cpf===cpf){
+                    fetch(`login/${objeto.id}`,{
+                        method: 'DELETE'
+                        //Se o CPF do objeto atual for igual ao CPF inserido pelo usuário, faz uma requisição DELETE para o endpoint "http://localhost:3000/login/{id}", onde {id} é o ID do objeto a ser deletado.
+                    })
+                }
+            })
+
+        })
+
+    }
+    </script>
+</body>
+</html>

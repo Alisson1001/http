@@ -1,0 +1,113 @@
+{
+  "fornecedor": [
+    {
+      "nomeEmpresa": "Lenovo",
+      "cnpj": "1",
+      "email": "asas",
+      "telefoneFornecedor": "222222222222222222222222222",
+      "endereco": "233213",
+      "representante": "23213213",
+      "cpfRepresentante": "2312321",
+      "tipoProduto": "Alimento",
+      "dataEntrega": "2023-04-06",
+      "id": 1
+    },
+    {
+      "nomeEmpresa": "dsd",
+      "cnpj": "1",
+      "email": "sdawd",
+      "telefone": "3424",
+      "endereco": "dsfdsf",
+      "representante": "r3we4r23r",
+      "cpfRepresentante": "",
+      "tipoProduto": "Eletrônico",
+      "dataEntrega": "2023-05-04",
+      "id": 2
+    },
+    {
+      "nomeEmpresa": "fewfwf",
+      "cnpj": "4",
+      "id": 3
+    },
+    {
+      "nomeEmpresa": "4f43f43",
+      "cnpj": "4343",
+      "id": 4
+    },
+    {
+      "nomeEmpresa": "felas",
+      "cnpj": "2",
+      "email": "aaaaaaaaaaaaaaaa",
+      "id": 5
+    },
+    {
+      "nomeEmpresa": "alisson",
+      "cnpj": "3",
+      "id": 6
+    },
+    {
+      "nomeEmpresa": "ewqe",
+      "cnpj": "",
+      "email": "e3edwsad",
+      "id": 7
+    },
+    {
+      "nomeEmpresa": "LEnovoBoladona",
+      "cnpj": "10",
+      "email": "aaaaa",
+      "telefone": "213212323",
+      "endereco": "332432434",
+      "representante": "undefined4344324",
+      "cpfRepresentante": "3432434",
+      "tipoProduto": "Eletrônico",
+      "dataEntrega": "2023-03-25",
+      "id": 8
+    },
+    {
+      "nomeEmpresa": "wewqeqw",
+      "cnpj": "11",
+      "email": "ewqeqwe",
+      "endereco": "23213213",
+      "representante": "232132",
+      "cpfRepresentante": "3213213",
+      "tipoProduto": "Automotivo",
+      "dataEntrega": "2023-05-06",
+      "id": 9
+    },
+    {
+      "nomeEmpresa": "2312312",
+      "cnpj": "12",
+      "email": "2321312",
+      "telefone": "2222222223333333333333333333",
+      "endereco": "23213",
+      "representante": "23213",
+      "cpfRepresentante": "2321321",
+      "tipoProduto": "Alimento",
+      "dataEntrega": "2023-04-29",
+      "id": 10
+    },
+    {
+      "nomeEmpresa": "2321312",
+      "cnpj": "13",
+      "email": "213123",
+      "endereco": "aaaaaaaaaaaaaaaa",
+      "representante": "321312",
+      "cpfRepresentante": "321321",
+      "tipoProduto": "Vestimento",
+      "dataEntrega": "2023-03-26",
+      "id": 11
+    }
+  ],
+  "login": [
+    {
+      "id": 1,
+      "nome": "Alisson",
+      "senha": 123
+    },
+    {
+      "nome": "Breno",
+      "senha": "456",
+      "id": 2
+    }
+  ]
+}

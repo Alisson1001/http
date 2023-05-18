@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleDeletarCadastroFornecedor.css">
+</head>
+<body>
+    <a href="lobby.html"><button>Voltar</button></a>
+  
+    
+
+   
+
+   
+
+    <div class="card">
+        <div class="card-header">
+          <div class="text-header">Cadastro do Fornecedor</div>
+        </div>
+        <div class="card-body">
+            <h3>Insira o CNPJ da empresa para deletar</h3>
+            <div class="input-group" >
+                <input type="email" class="input" id="cnpj" name="BuscarFornecedor" placeholder="CNPJ da Empresa" autocomplete="off">
+                <input class="button" value="Buscar" type="submit" onclick="buscarDados()" >
+                
+            </div>
+          <form action="#">
+            
+            <div class="form-group">
+              <label for="username">ID:</label>
+              <input required="" class="form-control" name="username" id="id" type="text" disabled>
+            </div>
+            <div class="form-group">
+                <label for="username">Nome da Empresa:</label>
+                <input required="" class="form-control" name="username" id="nomeEmpresa" type="text">
+
+           
+
+            <div class="form-group">
+              <label for="password">Email:</label>
+              <input required="" class="form-control" name="email" id="email" type="email" placeholder="empresa@gmail.com">
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Telefone:</label>
+              <input required="" class="form-control" name="confirm-password" id="telefone" type="number"  placeholder="11999999999">
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Endereço:</label>
+              <input required="" class="form-control" name="confirm-password" id="endereco" type="text">
+            </div>
+        
+            <div class="form-group">
+              <label for="confirm-password">Representante:</label>
+              <input required="" class="form-control" name="confirm-password" id="representante" type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="email">CPF do Representante:</label>
+                <input required="" class="form-control"  id="cpfRepresentante" type="number">
+              </div>
+              <div class="form-group">
+                <label for="cars">Tipo de Produto:</label>
+                <select  id="tipoProduto">
+                  <option >Eletrônico</option>
+                  <option >Alimento</option>
+                  <option >Automotivo</option>
+                  <option >Vestimento</option>
+                </select>
+        <br><br>
+
+        <div class="form-group">
+            <label for="confirm-password">Data da Entrega:</label>
+            <input required="" class="form-control" name="confirm-password" id="dataEntrega" type="date">
+          </div>
+
+           <input type="button" class="btn" onclick="deletarDados()" value="Deletar">    </form>
+
+
+
+
+
+
+    
+    <script>
+          function buscarDados(){
+        const cnpj=document.getElementById('cnpj').value;
+        fetch(`fornecedor`,{
+            method:'GET'
+        })
+        .then(response => response.json())
+        .then(data=>{
+            const buscarEmpresa = data.find(fornecedor => fornecedor.cnpj ===cnpj)
+            if(buscarEmpresa){
+                document.getElementById('nomeEmpresa').value = buscarEmpresa.nomeEmpresa;
+
+               
+                document.getElementById('id').value = buscarEmpresa.id;
+                document.getElementById('email').value = buscarEmpresa.email;
+                document.getElementById('telefone').value = buscarEmpresa.telefone;
+                document.getElementById('endereco').value = buscarEmpresa.endereco;
+                document.getElementById('representante').value = buscarEmpresa.representante;
+                document.getElementById('cpfRepresentante').value = buscarEmpresa.cpfRepresentante;
+                document.getElementById('tipoProduto').value = buscarEmpresa.tipoProduto;
+                document.getElementById('dataEntrega').value = buscarEmpresa.dataEntrega;
+            } else{
+                alert('empresa não Encontrada')
+            }
+        })
+    }
+
+
+
+
+        function deletarDados(){
+        const cnpj= document.getElementById("cnpj").value;
+
+        fetch(`fornecedor`)
+        .then(response=>response.json())
+        .then(data => {
+            data.forEach(objeto => {
+                if(objeto.cnpj===cnpj){
+                    fetch(`fornecedor/${objeto.id}`,{
+                        method: 'DELETE'
+                        //Se o CNPJ do objeto atual for igual ao CNPJ inserido pelo usuário, faz uma requisição DELETE para o endpoint "http://localhost:3000/fornecedor/{id}", onde {id} é o ID do objeto a ser deletado.
+                    })
+                }
+            })
+
+        })
+
+    }
+    </script>
+</body>
+</html>
