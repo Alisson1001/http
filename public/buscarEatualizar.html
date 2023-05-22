@@ -113,6 +113,7 @@
             }
            // Note que a função também preenche um campo oculto chamado "id" com o valor do ID do objeto encontrado. Esse campo será usado posteriormente para realizar a atualização ou exclusão desse objeto no servidor.
         })
+         location.reload();
     }
     //PUT
 
@@ -144,6 +145,7 @@
             //O corpo da requisição é o objeto JSON com as informações atualizadas do fornecedor, que é criado usando o método JSON.stringify() para converter o objeto JavaScript em uma string JSON.
         })
         .then(response =>response.json())
+         location.reload();
 
     }
 
